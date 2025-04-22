@@ -13,7 +13,7 @@ import { PokemonService } from './pokemon.service';
 export class AppComponent {
   readonly #pokemonService = inject(PokemonService);
 
-  pokemonList = signal(this.#pokemonService.getpokemonList)
+  pokemonList = signal(this.#pokemonService.getpokemonList())
 
 
   name = signal("Pikachu");

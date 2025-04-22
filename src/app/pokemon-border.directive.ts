@@ -12,7 +12,7 @@ export class PokemonBorderDirective {
   constructor (private el: ElementRef) {
 
   this.initialColor = this.el.nativeElement.style.borderColor;
-  this.el.nativeElement.style.borderwidth = '2px';
+  this.el.nativeElement.style.borderwidth = '5px';
   }
 
   @HostListener('mouseenter') onMouseEnter() {
