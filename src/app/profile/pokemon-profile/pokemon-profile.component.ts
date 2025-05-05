@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PokemonService } from '../../pokemon.service';
 
 @Component({
   selector: 'app-pokemon-profile',
@@ -7,5 +9,14 @@ import { Component } from '@angular/core';
   styles: ``
 })
 export class PokemonProfileComponent {
+
+  readonly #routes = inject(ActivatedRoute);
+  readonly #pokemonService = inject(PokemonService);
+  readonly #pokemonId = Number(this.#routes.snapshot.paramMap.get('id'));
+
+  readonly pokemon = signal(
+    this.#pokemonService.getPokemonById(this.#pokemonId)
+  ); 
+  
 
 }
